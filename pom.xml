@@ -32,18 +32,21 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.3.0</version>
         <executions>
-          <execution>
+            <execution>
             <phase>verify</phase>
             <goals>
-              <goal>check</goal>
+                <goal>check</goal>
+                <goal>checkstyle</goal>
             </goals>
-          </execution>
+            </execution>
         </executions>
         <configuration>
-          <configLocation>google_checks.xml</configLocation> <!-- puedes usar sun_checks.xml o uno personalizado -->
-          <failOnViolation>true</failOnViolation>
+            <configLocation>google_checks.xml</configLocation> <!-- o tu archivo personalizado -->
+            <encoding>UTF-8</encoding>
+            <consoleOutput>true</consoleOutput>
+            <failsOnError>true</failsOnError>
         </configuration>
-      </plugin>
+        </plugin>
 
       <!-- ✅ SpotBugs -->
       <plugin>
