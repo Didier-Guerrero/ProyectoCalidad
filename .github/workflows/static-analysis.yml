@@ -1,0 +1,63 @@
+name: Static Analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  static-code-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Run Checkstyle and PMD
+        run: mvn checkstyle:checkstyle pmd:pmd
+
+      - name: Evaluate errors vs total lines
+        run: |
+          # Total lines in src (Java only)
+          TOTAL_LINES=$(find src/main/java -name '*.java' | xargs wc -l | tail -n 1 | awk '{print $1}')
+          echo "Total lines of code: $TOTAL_LINES"
+
+          # Count Checkstyle violations
+          CHECKSTYLE_ERRORS=$(grep -o "<error " target/checkstyle-result.xml | wc -l)
+          echo "Checkstyle violations: $CHECKSTYLE_ERRORS"
+
+          # Count PMD violations
+          PMD_ERRORS=$(grep -o "<violation " target/pmd.xml | wc -l)
+          echo "PMD violations: $PMD_ERRORS"
+
+          # Total violations
+          TOTAL_ERRORS=$((CHECKSTYLE_ERRORS + PMD_ERRORS))
+          echo "Total violations: $TOTAL_ERRORS"
+
+          # Calculate error ratio (to 5%)
+          MAX_ERRORS=$(echo "$TOTAL_LINES * 0.05" | bc)
+          MAX_ERRORS=${MAX_ERRORS%.*} # Truncate decimal
+
+          echo "Allowed violations (5%): $MAX_ERRORS"
+
+          if [ "$TOTAL_ERRORS" -gt "$MAX_ERRORS" ]; then
+            echo "::error ::Static analysis failed: too many violations ($TOTAL_ERRORS > $MAX_ERRORS)"
+            exit 1
+          else
+            echo "Static analysis passed ✅"
+          fi

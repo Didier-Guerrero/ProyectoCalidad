@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+proyecto-ejemplo,com.ejemplo,OrderManager,0,36,0,2,0,9,0,5,0,4
+proyecto-ejemplo,com.ejemplo,PedidoRepositoryMemoria,0,18,0,0,0,5,0,3,0,3
+proyecto-ejemplo,com.ejemplo,Pedido,0,36,0,0,0,7,0,4,0,4
+proyecto-ejemplo,com.ejemplo,PedidoValidatorImpl,18,19,10,6,4,6,7,4,1,2
