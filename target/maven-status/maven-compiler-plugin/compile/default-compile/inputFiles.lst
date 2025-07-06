@@ -1,1 +1,6 @@
-/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/OrderManager.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/OrderManager.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/Pedido.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/PedidoRepository.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/PedidoRepositoryMemoria.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/PedidoValidator.java
+/Users/joseignacionaranjo/ProyectoCalidad/src/main/java/com/ejemplo/PedidoValidatorImpl.java
