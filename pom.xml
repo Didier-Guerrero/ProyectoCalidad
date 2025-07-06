@@ -8,6 +8,21 @@
   <artifactId>proyecto-ejemplo</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- ✅ JUnit 5 (para pruebas unitarias) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
 
@@ -32,21 +47,21 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.3.0</version>
         <executions>
-            <execution>
+          <execution>
             <phase>verify</phase>
             <goals>
-                <goal>check</goal>
-                <goal>checkstyle</goal>
+              <goal>check</goal>
+              <goal>checkstyle</goal>
             </goals>
-            </execution>
+          </execution>
         </executions>
         <configuration>
-            <configLocation>google_checks.xml</configLocation> <!-- o tu archivo personalizado -->
-            <encoding>UTF-8</encoding>
-            <consoleOutput>true</consoleOutput>
-            <failsOnError>true</failsOnError>
+          <configLocation>google_checks.xml</configLocation>
+          <encoding>UTF-8</encoding>
+          <consoleOutput>true</consoleOutput>
+          <failsOnError>true</failsOnError>
         </configuration>
-        </plugin>
+      </plugin>
 
       <!-- ✅ SpotBugs -->
       <plugin>
@@ -63,31 +78,35 @@
         </executions>
       </plugin>
 
-        <plugin>
+      <!-- ✅ JaCoCo -->
+      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.8.11</version>
         <executions>
-            <!-- Instrumenta el código antes de las pruebas -->
-            <execution>
+          <execution>
             <id>prepare-agent</id>
             <goals>
-                <goal>prepare-agent</goal>
+              <goal>prepare-agent</goal>
             </goals>
-            </execution>
-            <!-- Genera el reporte después de las pruebas -->
-            <execution>
+          </execution>
+          <execution>
             <id>report</id>
             <phase>verify</phase>
             <goals>
-                <goal>report</goal>
+              <goal>report</goal>
             </goals>
-            </execution>
+          </execution>
         </executions>
-        </plugin>
+      </plugin>
 
+      <!-- ✅ Surefire (ejecutar tests JUnit 5) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+      </plugin>
 
     </plugins>
   </build>
-
 </project>

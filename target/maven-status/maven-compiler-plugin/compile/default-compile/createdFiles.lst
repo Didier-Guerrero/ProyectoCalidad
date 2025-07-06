@@ -1,6 +1,6 @@
 com/ejemplo/PedidoValidator.class
 com/ejemplo/PedidoRepositoryMemoria.class
 com/ejemplo/PedidoRepository.class
+com/ejemplo/Pedido.class
 com/ejemplo/OrderManager.class
 com/ejemplo/PedidoValidatorImpl.class
-com/ejemplo/Pedido.class
