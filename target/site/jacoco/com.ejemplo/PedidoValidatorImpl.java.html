@@ -6,10 +6,10 @@
 <span class="fc" id="L6">public class PedidoValidatorImpl implements PedidoValidator {</span>
   @Override
   public void validar(String nombreCliente, String producto) {
-<span class="pc bpc" id="L9" title="1 of 2 branches missed.">    if (nombreCliente == null</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">    if (nombreCliente == null</span>
 <span class="fc bfc" id="L10" title="All 4 branches covered.">            || nombreCliente.isEmpty()</span>
             || producto == null
-<span class="pc bpc" id="L12" title="1 of 2 branches missed.">            || producto.isEmpty()) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            || producto.isEmpty()) {</span>
 <span class="fc" id="L13">      throw new IllegalArgumentException(&quot;Cliente y producto no pueden estar vacíos&quot;);</span>
     }
 <span class="fc" id="L15">  }</span>
