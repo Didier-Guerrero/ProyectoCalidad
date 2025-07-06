@@ -46,6 +46,20 @@ class SistemaPedidosTest {
     }
 
     @Test
+    void registrarPedido_ClienteNulo_LanzaExcepcion() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
+                orderManager.registrarPedido(null, "Teclado"));
+        assertEquals("Cliente y producto no pueden estar vacíos", ex.getMessage());
+    }
+
+    @Test
+    void registrarPedido_ProductoVacio_LanzaExcepcion() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
+                orderManager.registrarPedido("Luis", ""));
+        assertEquals("Cliente y producto no pueden estar vacíos", ex.getMessage());
+    }
+
+    @Test
     void obtenerPedidos_CuandoNoHayPedidos_DevuelveListaVacia() {
         assertTrue(orderManager.obtenerPedidos().isEmpty());
         assertFalse(orderManager.hayPedidos());
