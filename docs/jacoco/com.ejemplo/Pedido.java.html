@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pedido.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">proyecto-ejemplo</a> &gt; <a href="index.source.html" class="el_package">com.ejemplo</a> &gt; <span class="el_source">Pedido.java</span></div><h1>Pedido.java</h1><pre class="source lang-java linenums">package com.ejemplo;
+
+/**
+ * Representa un pedido realizado por un cliente.
+ */
+public class Pedido {
+  private final String nombreCliente;
+  private final String producto;
+
+  /**
+   * Construye un Pedido con el nombre del cliente y el producto especificados.
+   *
+   * @param nombreCliente el nombre del cliente
+   * @param producto el producto solicitado
+   */
+<span class="fc" id="L16">  public Pedido(String nombreCliente, String producto) {</span>
+<span class="fc" id="L17">    this.nombreCliente = nombreCliente;</span>
+<span class="fc" id="L18">    this.producto = producto;</span>
+<span class="fc" id="L19">  }</span>
+
+  /**
+   * Obtiene el nombre del cliente para este pedido.
+   *
+   * @return el nombre del cliente
+   */
+  public String getNombreCliente() {
+<span class="fc" id="L27">    return nombreCliente;</span>
+  }
+
+  /**
+   * Obtiene el producto para este pedido.
+   *
+   * @return el producto
+   */
+  public String getProducto() {
+<span class="fc" id="L36">    return producto;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L41">    return &quot;Pedido{&quot;</span>
+            + &quot;nombreCliente='&quot; + nombreCliente + '\''
+            + &quot;, producto='&quot; + producto + '\''
+            + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
