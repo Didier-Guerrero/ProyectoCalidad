@@ -49,3 +49,4 @@ public class OrderManager {
     return !repo.obtenerTodos().isEmpty();
   }
 }
+/*java -cp target/classes com.ejemplo.Main*/
